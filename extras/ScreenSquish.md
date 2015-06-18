@@ -3,49 +3,39 @@ layout: plugin
 
 id: ScreenSquish
 title: OctoPrint-ScreenSquish
-description: Scalable UI that does some old fashioned (2.3) bootstrap responsive and some collapse etc.
+description: Scalable UI that does some old fashioned (v2) bootstrap responsive and some collapse etc.
 author: Mark Walker
 license: AGPLv3
-
-# TODO
-date: today's date in format YYYY-MM-DD, e.g. 2015-04-21
+date: 2015-06-17
 
 homepage: https://github.com/markwal/OctoPrint-ScreenSquish
 source: https://github.com/markwal/OctoPrint-ScreenSquish
-archive: 
+archive: https://github.com/markwal/OctoPrint-ScreenSquish/archive/master.zip
 
-# TODO
 tags:
-- a list
-- of tags
-- that apply
-- to your plugin
-- (take a look at the existing plugins for what makes sense here)
+- mobile
+- ui
 
-# TODO
-screenshots:
-- url: url of a screenshot
-  alt: alt-text of a screenshot
-  caption: caption of a screenshot
-- url: url of another screenshot
-  alt: alt-text of another screenshot
-  caption: caption of another screenshot
-- ...
-
-# TODO
-featuredimage: url of a featured image for your plugin
+featuredimage: https://markwal.github.io/OctoPrint/squishsample.png
 
 compatibility:
-  # list of compatible versions, for example 1.2.0. If left empty no specific version requirement will be assumed
   octoprint:
   - 1.2.0
-
-  # list of compatible operating systems, valid values are linux, windows, macos, leaving empty defaults to all
   os:
-  - linux
-  - windows
-  - macos
 ---
+Bootstrap 2 "responsive" UI, a single column on your phone
 
-**TODO**: Longer description of your plugin, configuration examples etc. This part will be visible on the page at
-plugins.octoprint.org/plugin/ScreenSquish/
+This is a little plugin that adds an HTML element here, changes some css there in
+a tweaky way to have the default OctoPrint UI reflow (or squish) for smaller
+screen sizes.
+
+There are more epic UIs in the works elsewhere, but you can use this plugin until
+something better comes along.
+
+Since it does tweak the current UI that will likely change, it disables itself
+on any new version of OctoPrint. My plan is to keep it up to date within a few
+days or even ahead of any official release until such time as it is no longer
+needed because of an alternate UI plugin or because bootstrap 3 happened.
+
+Go ahead and give it a try and if you don't like it you can always disable it or
+uninstall from OctoPrint's plugin manager.
