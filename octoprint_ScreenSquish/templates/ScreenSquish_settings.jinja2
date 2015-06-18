@@ -1,0 +1,19 @@
+<form class="form-horizontal" id="screen_squish_settings">
+    <!-- ko if: show_override -->
+    <div class="control-group">
+        <div class="controls">
+            {{ _('The current version of OctoPrint is newer than the compatibility level of ScreenSquish, so the plugin has disabled itself to prevent troubles. You may want to see if an update of ScreenSquish is available.') }}
+            <label class="checkbox">
+                <input type="checkbox" data-bind="checked: override_version"> {{ _('Override version check') }}
+            </label>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: show_override -->
+    <div class="control-group">
+        <div class="controls">
+            {{ _('ScreenSquish currently does not have settings, but if it automatically disabled itself for some reason, there would be an option here to override its decision.') }}
+        </div>
+    </div>
+    <!-- /ko -->
+</form>

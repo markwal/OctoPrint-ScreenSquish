@@ -1,0 +1,120 @@
+// Squish
+@import "responsive.less";
+
+// less flex mixin from https://gist.github.com/jayj/4012969
+// flex or inline-flex
+.flex-display(@display: flex) {
+    display: ~"-webkit-@{display}";
+    display: ~"-moz-@{display}";
+    display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+    display: ~"-ms-@{display}"; // IE11
+    display: @display;
+}
+
+@-ms-viewport {
+    width: auto !important;
+}
+
+@media (max-width: 767px) {
+  // shrink the margins/padding and kill some vertical borders
+  body {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .octoprint-container .tab-content {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+  }
+  .accordion-group {
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+  }
+  .full-sized-box {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  // printer profile settings tab
+  #settings_printerProfiles_profiles_name, #settings_printerProfiles_profiles_model {
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  // temperature tab
+  .squish-temp-units {}
+  input.tempInput {
+    width: 30px;
+  }
+
+  // settings dialog
+  #squishSettingsTabButton {
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 979px) {
+  // equal height buttons when some wrap
+  .print-control, .upload-buttons {
+    .flex-display(flex);
+  }
+
+  // file panel
+  input.search-query {
+    width: initial;
+  }
+
+  // temperature tab
+  .squish-temp-units {
+    display: none !important;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  // terminal tab
+  #terminal-command {
+    width: 140px;
+  }
+}
+
+// gcode viewer
+#gcode {
+  .progress {
+    width: 100%;
+    max-width: 582px;
+  }
+  .slider-horizontal {
+    width: calc(~"100% - 25px") !important;
+    max-width: 568px;
+  }
+  .gcode_canvas_clipper {
+      position: relative;
+      overflow: hidden;
+      height: 568px;
+      width: calc(~"100% - 20px");
+  }
+  #gcode_canvas {
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
+      margin: auto;
+  }
+}
+
+// settings dialog
+// fixed won't let it scroll if it's too big
+#settings_dialog {
+  position:absolute;
+}
+// normally hidden
+#settings_dialog #squishSettingsTabButton {
+  display:none;
+}
