@@ -1,20 +1,17 @@
 # OctoPrint-ScreenSquish
 
-**TODO:** Describe what your plugin does.
+OctoPrint in a single column on your phone.  Or a little horizontally squished 
+on your tablet.
+
+This plugin just adds a little old-fashioned bootstrap v2 responsiveness (or
+screen scalability if you prefer) to the UI that is already there.  While you're
+building your nifty alternate UI or waiting for one from somebody else, this plugin
+will make OctoPrint easier to use on your phone browser.
+
+![Example](https://markwal.github.io/OctoPrint/squishsample.png)
 
 ## Setup
 
-Install the plugin like you would install any regular Python package from source:
-
-    pip install 
-
-Make sure you use the same Python environment that you installed OctoPrint under, otherwise the plugin won't be able to satisfy its dependencies.
-
-Restart OctoPrint. octoprint.log should show you that the plugin was successfully found and loaded.
-
-**TODO:** Describe how to install your plugin, if more needs to be done than just installing it via pip or through
-the plugin manager.
-
-## Configuration
-
-**TODO:** Describe your plugin's configuration options (if any).
+1. Install via OctoPrint's [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
+2. Restart
+3. Refresh the browser
