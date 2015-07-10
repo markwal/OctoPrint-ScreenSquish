@@ -20,14 +20,18 @@ class ScreenSquishPlugin(octoprint.plugin.AssetPlugin, octoprint.plugin.Template
 
 	def get_assets(self):
 		from octoprint._version import get_versions
-		octoprint_version = get_versions()["version"]
 
-		octoprint_max_version = self._settings.get(["octoprint_max_version"])
-		if octoprint_max_version is None or octoprint_max_version == '' or parse_version(self.octoprint_max_version)[:2] > parse_version(octoprint_max_version)[:2]:
+		octoprint_version = self._parse_version(get_versions()["version"])
+		settings_max_version = self._parse_version(self._settings.get(["octoprint_max_version"]))
+		default_max_version = self._parse_version(self.octoprint_max_version)
+
+		self._logger.info("version: %s, max_version: %s, default_version: %s" % (octoprint_version, settings_max_version, default_max_version))
+
+		if settings_max_version is None or settings_max_version == '' or default_max_version > settings_max_version:
 			self._settings.set(["octoprint_max_version"], None)
-			octoprint_max_version = self.octoprint_max_version
-
-		if parse_version(octoprint_version)[:2] > parse_version(octoprint_max_version)[:2]:
+			if octoprint_version >= default_max_version:
+				return dict(js=["js/squishsettings.js"])
+		elif octoprint_version > settings_max_version:
 			return dict(
 				js=["js/squishsettings.js"]
 			)
@@ -36,6 +40,14 @@ class ScreenSquishPlugin(octoprint.plugin.AssetPlugin, octoprint.plugin.Template
 			js=["js/squish.js"],
 			css=["css/squish.css"]
 		)
+
+	def _parse_version(self, version):
+		# if setuptools is old, let's just use the first two tuple elements,
+		# otherwise we'll leave the comparison up to the Version objects
+		version = parse_version(version)
+		if isinstance(version, tuple):
+			return version[:2]
+		return version
 
 __plugin_name__ = "ScreenSquish"
 
