@@ -4,7 +4,7 @@
 plugin_identifier = "ScreenSquish"
 plugin_package = "octoprint_%s" % plugin_identifier
 plugin_name = "OctoPrint-ScreenSquish"
-plugin_version = "0.3"
+plugin_version = "0.4"
 plugin_description = "Scalable UI that does some old fashioned (2.3) bootstrap responsive and some collapse etc."
 plugin_author = "Mark Walker"
 plugin_author_email = "markwal@hotmail.com"
